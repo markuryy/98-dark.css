@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html data-theme="dark">
 <head>
   <title>98.css - A design system for building faithful recreations of old UIs</title>
   <link rel="Shortcut Icon" type="image/x-icon" href="icon.png" />
@@ -55,6 +55,31 @@
     <h1>98.css</h1>
     <hr>
     <p>A design system for building faithful recreations of old UIs.</p>
+
+    <div class="theme-switch-wrapper">
+        <input type="checkbox" id="checkbox" checked="checked" />
+        <label class="theme-switch" for="checkbox"><em>Enable Dark Mode!</em></label>
+        <script>
+          const toggleSwitch = document.querySelector('#checkbox');
+          if(theme = localStorage.getItem('theme')) {
+            document.documentElement.style.colorScheme = theme;
+            if(theme === 'dark') {
+              toggleSwitch.checked = 'checked';
+            } else {
+              toggleSwitch.checked = '';
+            }
+          }
+          toggleSwitch.addEventListener('change', function(e) {
+              if (e.target.checked) {
+                  document.documentElement.style.colorScheme = 'dark';
+                  localStorage.setItem('theme', 'dark');
+              } else {
+                  document.documentElement.style.colorScheme = 'light';
+                  localStorage.setItem('theme', 'light');
+              }    
+          }, false);
+        </script>
+    </div>
 
     <p>
       <a href="http://npm.im/98.css" rel="nofollow" style="text-decoration: none">
@@ -780,7 +805,7 @@
         <%- example(`
           <ul class="tree-view">
             <li>We can put</li>
-            <li><strong style="color: purple">✨ Whatever ✨</strong></li>
+            <li><strong style="color: pink">✨ Whatever ✨</strong></li>
             <li>We want in here</li>
           </ul>
         `) %>

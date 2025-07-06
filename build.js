@@ -15,6 +15,7 @@ function buildCSS() {
     `/*! 98.css v${version} - ${homepage} */\n` + fs.readFileSync("style.css");
 
   return postcss()
+    .use(require("postcss-import"))
     .use(require("postcss-inline-svg"))
     .use(require("postcss-css-variables"))
     .use(require("postcss-calc"))
@@ -68,6 +69,11 @@ function buildDocs() {
   fs.writeFileSync(
     path.join(__dirname, "/dist/index.html"),
     ejs.render(template, { getNewId, getCurrentId, example })
+  );
+
+  fs.writeFileSync(
+    path.join(__dirname, "/dist/variables.css"),
+    fs.readFileSync("./variables.css")
   );
 }
 

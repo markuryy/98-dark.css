@@ -1,7 +1,9 @@
+@import './variables.css';
+
 body {
   margin: 0;
   padding: 0;
-  background: #c0c0c0;
+  background: var(--button-face);
 }
 
 main {
@@ -79,7 +81,7 @@ p {
 blockquote {
   margin: 0 0 20px;
   padding: 20px;
-  background: #dfdfdf;
+  background: var(--button-face);
 }
 
 blockquote footer {
@@ -89,7 +91,7 @@ blockquote footer {
 .example {
   margin: 16px 0;
   padding: 12px 24px;
-  border-left: 1px solid #808080;
+  border-left: 1px solid var(--button-face);
 }
 
 details {
