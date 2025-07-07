@@ -126,7 +126,7 @@ input[type="reset"].default:not(:disabled):active {
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
-  outline: 1px dotted #000000;
+  outline: 1px dotted light-dark(#000000, #ffffff);
   outline-offset: -4px;
 }
 
@@ -375,13 +375,13 @@ input[type="checkbox"] + label::before {
   display: inline-block;
   width: var(--checkbox-width);
   height: var(--checkbox-width);
-  background: var(--button-highlight);
+  background: #ffffff;
   box-shadow: var(--border-field);
   margin-right: var(--radio-label-spacing);
 }
 
 input[type="checkbox"]:active + label::before {
-  background: var(--surface);
+  background: #ffffff; /* No! Always white? */
 }
 
 input[type="checkbox"]:checked + label::after {
@@ -714,7 +714,7 @@ ul.tree-view details > summary:before {
   line-height: 8px;
   margin-right: 5px;
   padding-left: 1px;
-  background-color: #fff;
+  background-color: var(--button-highlight);
 }
 
 ul.tree-view details[open] > summary:before {
@@ -892,7 +892,7 @@ table > tbody > tr > * {
 .progress-indicator > .progress-indicator-bar {
   height: 100%;
   display: block;
-  background-color: var(--text-color);
+  background-color: var(--progress-blue);
 }
 
 .progress-indicator.segmented > .progress-indicator-bar {
@@ -900,7 +900,7 @@ table > tbody > tr > * {
   background-color: transparent; /* resets the background color which is set to blue in the non-segmented selector */
   background-image: linear-gradient(
     90deg,
-    var(--text-color) 0 16px,
+    var(--progress-blue) 0 16px,
     transparent 0 2px
   );
   background-repeat: repeat;

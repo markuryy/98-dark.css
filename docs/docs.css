@@ -1,9 +1,9 @@
 @import './variables.css';
 
 body {
-  margin: 0;
+  margin: 40px 0 0;
   padding: 0;
-  background: var(--button-face);
+  background: var(--surface);
 }
 
 main {
@@ -15,7 +15,7 @@ main {
 aside {
   width: 200px;
   position: fixed;
-  top: 0;
+  top: 40px;
   bottom: 0;
   padding: 8px;
   display: flex;
@@ -91,7 +91,7 @@ blockquote footer {
 .example {
   margin: 16px 0;
   padding: 12px 24px;
-  border-left: 1px solid var(--button-face);
+  border-left: 1px solid var(--dialog-gray);
 }
 
 details {
@@ -109,7 +109,7 @@ details[open] summary {
 }
 
 button.focused {
-  outline: 1px dotted #000000;
+  outline: 1px dotted light-dark(#000000, #ffffff);
   outline-offset: -4px;
 }
 
@@ -151,4 +151,15 @@ button.active {
   pre {
     overflow-x: scroll;
   }
+}
+
+.theme-switch-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding: 10px 5px;
+  background-color: light-dark(#ccc, #333);
+  z-index: 1;
 }
