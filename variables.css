@@ -1,4 +1,10 @@
 :root {
+  color-scheme: light;
+  &[data-dark] {
+    color-scheme: dark;
+  }
+
+  
   /* Color */
   --text-color: light-dark(#222222, #dddddd);
   --surface: light-dark(#c0c0c0, #2b2b2b);

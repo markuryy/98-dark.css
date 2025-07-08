@@ -1,5 +1,6 @@
-const chokidar = require("chokidar");
-const build = require("./build");
+import { startDevServer } from '@web/dev-server';
+import chokidar from 'chokidar';
+import build from "./build.js";
 
 chokidar
   .watch(["style.css", "build.js", "docs", "fonts", "icon"], {
@@ -12,5 +13,13 @@ chokidar
     build();
   });
 
-var liveServer = require("live-server");
-liveServer.start({ port: 3000, root: "dist" });
+async function main() {
+  const server = await startDevServer({
+    config: {
+      rootDir: './dist',
+      watch: true
+    }
+  });
+}
+
+main();

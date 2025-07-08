@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-theme="dark">
+<html>
 <head>
   <title>98.css - A design system for building faithful recreations of old UIs</title>
   <link rel="Shortcut Icon" type="image/x-icon" href="icon.png" />
@@ -57,26 +57,34 @@
     <p>A design system for building faithful recreations of old UIs, darkened.</p>
 
     <div class="theme-switch-wrapper">
-      <input type="checkbox" id="checkbox" checked="checked" />
-      <label class="theme-switch" for="checkbox">Enable Dark Mode</label>
+      <input type="checkbox" id="theme-switch" />
+      <label class="theme-switch" for="theme-switch">Enable Dark Mode</label>
       <script>
-        const toggleSwitch = document.querySelector('#checkbox');
-        if(theme = localStorage.getItem('theme')) {
-          document.documentElement.style.colorScheme = theme;
-          if(theme === 'dark') {
-            toggleSwitch.checked = 'checked';
+        const toggleSwitch = document.querySelector('#theme-switch');
+        if (! localStorage.getItem('theme')) {
+          if(
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+          ) {
+            localStorage.setItem('theme', 'dark');
           } else {
-            toggleSwitch.checked = '';
+            localStorage.setItem('theme', 'light');
           }
+        }
+        if(localStorage.getItem('theme') === 'dark') {
+          document.documentElement.setAttribute('data-dark', true);
+          toggleSwitch.checked = true;
+        } else {
+          toggleSwitch.checked = false;
         }
         toggleSwitch.addEventListener('change', function(e) {
             if (e.target.checked) {
-                document.documentElement.style.colorScheme = 'dark';
+                document.documentElement.setAttribute('data-dark', true);
                 localStorage.setItem('theme', 'dark');
             } else {
-                document.documentElement.style.colorScheme = 'light';
+                document.documentElement.removeAttribute('data-dark');
                 localStorage.setItem('theme', 'light');
-            }    
+            }
         }, false);
       </script>
     </div>

@@ -245,6 +245,40 @@ input[type="reset"]:disabled,
   background-position: top 3px left 4px;
 }
 
+/* prefers-color-scheme cannot be overridden by JS */
+html[data-dark] {
+  .title-bar-controls button[aria-label="Minimize"],
+  .title-bar-controls button[aria-label].minimize {
+    background-image: svg-load("./icon/dark/minimize.svg");
+  }
+
+  .title-bar-controls button[aria-label="Maximize"],
+  .title-bar-controls button[aria-label].maximize {
+    background-image: svg-load("./icon/dark/maximize.svg");
+  }
+
+  .title-bar-controls button[aria-label="Maximize"]:disabled,
+  .title-bar-controls button[aria-label].maximize:disabled {
+    background-image: svg-load("./icon/dark/maximize-disabled.svg");
+  }
+
+  .title-bar-controls button[aria-label="Restore"],
+  .title-bar-controls button[aria-label].restore {
+    background-image: svg-load("./icon/dark/restore.svg");
+  }
+
+  .title-bar-controls button[aria-label="Help"],
+  .title-bar-controls button[aria-label].help {
+    background-image: svg-load("./icon/dark/help.svg");
+  }
+
+  .title-bar-controls button[aria-label="Close"],
+  .title-bar-controls button[aria-label].close {
+    margin-left: 2px;
+    background-image: svg-load("./icon/dark/close.svg");
+  }
+}
+
 .status-bar {
   margin: 0px 1px;
   display: flex;
@@ -337,6 +371,16 @@ input[type="radio"] + label::before {
 
 input[type="radio"]:active + label::before {
   background: svg-load("./icon/radio-border-disabled.svg");
+}
+
+html[data-dark] {
+  input[type="radio"] + label::before {
+    background: svg-load("./icon/dark/radio-border.svg");
+  }
+
+  input[type="radio"]:active + label::before {
+    background: svg-load("./icon/dark/radio-border-disabled.svg");
+  }
 }
 
 input[type="radio"]:checked + label::after {
@@ -539,6 +583,24 @@ input[type="range"].has-box-indicator::-moz-range-thumb {
   transform: translateY(0px);
 }
 
+html[data-dark] {
+  input[type="range"]::-webkit-slider-thumb {
+    background: svg-load("./icon/dark/indicator-horizontal.svg");
+  }
+
+  input[type="range"].has-box-indicator::-webkit-slider-thumb {
+    background: svg-load("./icon/dark/indicator-rectangle-horizontal.svg");
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    background: svg-load("./icon/dark/indicator-horizontal.svg");
+  }
+
+  input[type="range"].has-box-indicator::-moz-range-thumb {
+    background: svg-load("./icon/dark/indicator-rectangle-horizontal.svg");
+  }
+}
+
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 2px;
@@ -620,6 +682,12 @@ select:focus option {
 
 select:active {
   background-image: svg-load("./icon/button-down-active.svg");
+}
+
+html[data-dark] {
+  select:active {
+    background-image: svg-load("./icon/dark/button-down-active.svg");
+  }
 }
 
 a {
@@ -787,6 +855,21 @@ summary:focus {
   background-image: svg-load("./icon/button-right.svg");
 }
 
+html[data-dark] {
+  ::-webkit-scrollbar-button:vertical:start {
+    background-image: svg-load("./icon/dark/button-up.svg");
+  }
+  ::-webkit-scrollbar-button:vertical:end {
+    background-image: svg-load("./icon/dark/button-down.svg");
+  }
+  ::-webkit-scrollbar-button:horizontal:start {
+    background-image: svg-load("./icon/dark/button-left.svg");
+  }
+  ::-webkit-scrollbar-button:horizontal:end {
+    background-image: svg-load("./icon/dark/button-right.svg");
+  }
+}
+
 .window[role=tabpanel] {
   position: relative;
   z-index: 2;
@@ -840,6 +923,12 @@ menu[role=tablist].multirows > li {
   border-image: svg-load("./icon/sunken-panel-border.svg") 2;
   overflow: auto;
   background-color: var(--button-face);
+}
+
+html[data-dark] {
+  .sunken-panel {
+    border-image: svg-load("./icon/dark/sunken-panel-border.svg") 2;
+  }
 }
 
 table {
