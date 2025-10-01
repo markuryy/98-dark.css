@@ -856,6 +856,9 @@ summary:focus {
 }
 
 html[data-dark] {
+  ::-webkit-scrollbar-track {
+    background-image: svg-load("./icon/dark/scrollbar-background.svg");
+  }
   ::-webkit-scrollbar-button:vertical:start {
     background-image: svg-load("./icon/dark/button-up.svg");
   }
